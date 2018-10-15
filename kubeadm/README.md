@@ -34,7 +34,7 @@ Addons:
   各Pod之间通信：overlay Network 叠加网络  
   Pod与service之间通信：iptables或者ipvs
 #### k8s 网络图
-![image](https://github.com/king131/kubernetes/blob/master/kubeadm/images/k8sk8s_network.png)  
+![image](https://github.com/king131/kubernetes/blob/master/kubeadm/images/k8s_network.png)  
 
 CNI：  
   flannel：网络配置  
