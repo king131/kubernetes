@@ -1,0 +1,52 @@
+1、RESTful
+  GET, PUT, DELETE,POST
+  kubectl run,get,edit
+
+2、资源：对象
+  1、workload：pod，ReplicaSet，Deployment，StatefulSet，DaemonSet，Job，CronJob
+  2、服务发现及服务均衡：Service，Ingress
+  3、配置与存储相关的资源：Volume，CSI（容器存储接口）
+    configMap（当配置中心使用），Secret
+    DownloadAPI
+  4、集群级资源：
+    1、namespace
+    2、Node
+    3、Role
+    4、ClusterRole
+    5、RoleBinding
+    6、ClusterRoleBinding
+  5、元数据资源：
+    1、HPA、PodTemplate、LimitRange
+
+
+创建资源的方法：
+  apiserver仅接受JSON格式的资源定义；
+  yaml格式提供配置清单，apiserver可自动将其转为json格式
+
+大部分的资源配置清单都有五个一级字段组成：
+  apiVersion：  group/version
+    $kubectl api-versions
+  kind：资源类别
+  metedata：元数据
+    name：唯一
+    namespace：
+    labels：键值数据
+    annotations：资源注解
+
+  spec：定义用户期望的状态（desired state）
+
+  status： current status 由kubernetes集群维护，用户不能定义
+
+kubectl explain TYPE
+
+  每个资源的引用PATH：
+    /api/GROUP/VERSION/namespace/NAMESPACE/TYPE/NAME
+
+
+
+e.g:
+ pod-demo.yaml
+kubectl create -f pod-demo.yaml
+查看日志：
+kubectl logs  pod-demo （myapp|busybox）
+kubectl delete -f pod-demo.yaml

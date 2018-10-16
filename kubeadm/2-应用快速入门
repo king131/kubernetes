@@ -1,0 +1,208 @@
+kubectl
+kubectl controls the Kubernetes cluster manager.
+
+Find more information at: https://kubernetes.io/docs/reference/kubectl/overview/
+
+Basic Commands (Beginner):
+  create         Create a resource from a file or from stdin
+  expose         使用 replication controller, service, deployment 或者 pod
+并暴露它作为一个 新的 Kubernetes Service
+  run            在集群中运行一个指定的镜像
+  set            为 objects 设置一个指定的特征
+
+Basic Commands (Intermediate):
+  explain        查看资源的文档
+  get            显示一个或更多 resources
+  edit           在服务器上编辑一个资源
+  delete         Delete resources by filenames, stdin, resources and names, or
+by resources and label selector
+
+Deploy Commands:
+  rollout        Manage the rollout of a resource
+  scale          为 Deployment, ReplicaSet, Replication Controller 或者 Job
+设置一个新的副本数量
+  autoscale      自动调整一个 Deployment, ReplicaSet, 或者
+ReplicationController 的副本数量
+
+Cluster Management Commands:
+  certificate    修改 certificate 资源.
+  cluster-info   显示集群信息
+  top            Display Resource (CPU/Memory/Storage) usage.
+  cordon         标记 node 为 unschedulable
+  uncordon       标记 node 为 schedulable
+  drain          Drain node in preparation for maintenance
+  taint          更新一个或者多个 node 上的 taints
+
+Troubleshooting and Debugging Commands:
+  describe       显示一个指定 resource 或者 group 的 resources 详情
+  logs           输出容器在 pod 中的日志
+  attach         Attach 到一个运行中的 container
+  exec           在一个 container 中执行一个命令
+  port-forward   Forward one or more local ports to a pod
+  proxy          运行一个 proxy 到 Kubernetes API server
+  cp             复制 files 和 directories 到 containers
+和从容器中复制 files 和 directories.
+  auth           Inspect authorization
+
+Advanced Commands:
+  apply          通过文件名或标准输入流(stdin)对资源进行配置
+  patch          使用 strategic merge patch 更新一个资源的 field(s)
+  replace        通过 filename 或者 stdin替换一个资源
+  wait           Experimental: Wait for a specific condition on one or many
+resources.
+  convert        在不同的 API versions 转换配置文件
+
+Settings Commands:
+  label          更新在这个资源上的 labels
+  annotate       更新一个资源的注解
+  completion     Output shell completion code for the specified shell (bash or
+zsh)
+
+Other Commands:
+  alpha          Commands for features in alpha
+  api-resources  Print the supported API resources on the server
+  api-versions   Print the supported API versions on the server, in the form of
+"group/version"
+  config         修改 kubeconfig 文件
+  plugin         Provides utilities for interacting with plugins.
+  version        输出 client 和 server 的版本信息
+
+Usage:
+  kubectl [flags] [options]
+
+Use "kubectl <command> --help" for more information about a given command.
+Use "kubectl options" for a list of global command-line options (applies to all
+commands).
+
+1、启动一个简单的pod
+  kubectl run --help 查看帮助
+  kubectl get nodes
+  376  kubectl get pods -n kube-system
+  377  kubectl get ns
+  378  kubectl get pods -n kube-system -o wide
+  379  kubectl get svc -n kube-system -o wide
+  380  kubectl get deployment -n kube-system -o wide
+  381  docker images
+  382  kubectl get pods
+  383  kubectl get pods -n kube-system
+  384  kubectl discrube pod coredns-576cbf47c7-2zzzb
+  385  kubectl discribe pod coredns-576cbf47c7-2zzzb
+  386  kubectl describe pod coredns-576cbf47c7-2zzzb
+  387  kubectl describe -h
+  388  kubectl describe pods coredns-576cbf47c7-2zzzb
+  389  kubectl get pods -n kube-system
+  390  kubectl describe pods coredns-576cbf47c7-2zzzb
+  391  kubectl describe pods coredns-576cbf47c7-2zzzb -n kube-system
+  392  kubectl get pods -n kube-system
+  393  kubectl -n kube-system logs coredns-576cbf47c7-2zzzb
+  394  vim /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+  395  systemctl daemon-reload
+  396  systemctl restart kubectl
+  397  systemctl restart kubelet
+  398  kubectl get pods -n kube-system
+  399  kubectl -n kube-system logs coredns-576cbf47c7-2zzzb
+  400  kubectl get pods -n kube-system
+  401  kubectl -n kube-system logs coredns-576cbf47c7-8ggl9
+  402  kubectl get pods -n kube-system
+  403  kubectl -n kube-system logs coredns-576cbf47c7-8ggl9
+  404  kubectl get pods -n kube-system
+  405  vim /etc/resolv.conf
+  406  systemctl restart kubelet
+  407  kubectl get pods -n kube-system
+  408  kubectl -n kube-system logs coredns-576cbf47c7-8ggl9
+  409  kubectl get pods -n kube-system
+  410  kubectl get nodes
+  411  kubectl
+  412  kubectl describe node k8s2.tsjinrong.top
+  413  kubectl describe node k8s1.tsjinrong.top
+  414  kubectl cluster-info
+  415  dig -t A nginx.default.svc.cluster.local @10.96.0.10
+  416  kubectl get pods -o wide
+  417  kubectl get svc -o wide
+  418  kubectl get pods -o wide
+  419  iptables -nL
+  420  kubectl describe svc nginx
+  421  kubectl get pods --show-labels
+  422  kubectl run deployment myapp  --image=ikubernetes/myapp:v1 --replicas=2
+  423  kubectl get pods
+  424  kubectl delete deployment
+  425  kubectl get deployment
+  426  kubectl delete deployment deployment
+  427  kubectl run  myapp  --image=ikubernetes/myapp:v1 --replicas=2
+  428  kubectl get deployment
+  429  kubectl get deployment -w
+  430  kubectl get pods -o wide
+  431  curl 10.244.2.5
+  432  curl 10.244.1.6
+  433  curl 10.244.1.6/hostname.html
+  434  curl 10.244.2.5/hostname.html
+  435  kubectl expose deployment myapp --name=myapp --port=80
+  436  kubectl get svc
+  437  kubectl scale deployment myapp --replicas=5
+  438  kubectl get pods
+  439  kubectl scale deployment myapp --replicas=3
+  440  kubectl get pods
+  441  kubect describe pods myapp-6946649ccd-drs78
+  442  kubectl describe pods myapp-6946649ccd-drs78
+  443  kubectl set image deployment myapp myapp=ikubernetes/myapp:v2
+  444  kubectl rollout status deployment myapp
+  445  kubectl describe pods
+  446  kubectl rollout undo deployment myapp
+  447  kubectl rollout status deployment myapp
+  448  kubectl get pods -o wide
+  449  iptables -vnL -t nae
+  450  iptables -vnL -t nat
+  451  kubectl edit svc myapp
+  452  kubectl get svc
+  446  dig -t A nginx @10.96.0.10
+ 447  yum install -y dig
+ 448  yum install -y bind-utils
+ 449  dig -t A nginx @10.96.0.10
+ 450  kubectl run client --image=busybox --replicas=1 -it --restart=Never
+ 451  kubectl get posd
+ 452  kubectl get pods
+ 453  kubectl delete pods nginx-deploy-86bf78c77-cj6lc
+ 454  kubectl get pods
+ 455  kubectl exec -it
+ 456  kubectl get pods
+ 457  kubectl delete pods client
+ 458  kubectl run client --image=busybox --replicas=1 -it --restart=Never
+ 432  kubectl delete pod nginx-deploy-86bf78c77-hk9mq
+  433  kubectl get pods -o wide
+  434  kubectl delete pod nginx-deploy-86bf78c77-hk9mq
+  435  kubectl get pods -o wide
+  436  kubectl expose service --name nginx  --port=80 --targetport=80 --protocol=tcp
+  437  kubectl expose depolyment  nginx-deploy --name=nginx --port=80 --target-port=80 --protocol=TCP
+  438  kubectl expose deployment  nginx-deploy --name=nginx --port=80 --target-port=80 --protocol=TCP
+  439  kubectl get svc
+  440  curl nginx
+  441  curl 10.102.3.236
+  442  kubectl get svc -o wide
+  443  kubectl get nodes -o wide -n kube-system
+  444  kubectl get pods -o wide -n kube-system
+  445  kubectl get svc  -o wide -n kube-system
+  408  kubectl -n kube-system logs coredns-576cbf47c7-8ggl9
+409  kubectl get pods -n kube-system
+410  kubectl get nodes
+411  kubectl
+412  kubectl describe node k8s2.tsjinrong.top
+413  kubectl describe node k8s1.tsjinrong.top
+414  kubectl cluster-info
+415  kubectl run nginx --image=nginx --dry-run
+416  kubectl run --help
+417  kubectl run nginx-deploy  --image=nginx:1.14-alpine --port=80 --replicas=1 --dry-run=true
+418  kubectl run nginx-deploy  --image=nginx:1.14-alpine --port=80 --replicas=1
+419  kubectl get pods
+420  kubectl get deployment
+421  kubectl get pods
+381  docker images
+ 382  kubectl get pods
+ 383  kubectl get pods -n kube-system
+ 384  kubectl discrube pod coredns-576cbf47c7-2zzzb
+ 385  kubectl discribe pod coredns-576cbf47c7-2zzzb
+ 386  kubectl describe pod coredns-576cbf47c7-2zzzb
+ 387  kubectl describe -h
+ 388  kubectl describe pods coredns-576cbf47c7-2zzzb
+ 389  kubectl get pods -n kube-system
+ 390  kubectl describe pods coredns-576cbf47c7-2zzzb
+ 391  kubectl describe pods coredns-576cbf47c7-2zzzb -n kube-system
