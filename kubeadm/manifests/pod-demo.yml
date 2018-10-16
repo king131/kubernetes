@@ -6,13 +6,24 @@ metadata:
   labels:
     app: myapp
     tier: frontend
+  # annotations:
+  #   tsjinrong.cn/createBy: "king"
 spec:
   containers:
   - name: myapp
     image: ikubernetes/myapp:v1
+    ports: #消息性的并不会真正影响端口暴露
+    - name: http
+      containerPort: 80
+    - name: https
+      containerPort: 443
   - name: busybox
     image: busybox:latest
+    imagePullPolicy: IfNotPresent
     command:
     - "/bin/sh"
     - "-c"
     - "sleep 3600"
+
+  # nodeSelector:
+    # disktype: ssd

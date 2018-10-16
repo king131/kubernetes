@@ -206,3 +206,4 @@ commands).
  389  kubectl get pods -n kube-system
  390  kubectl describe pods coredns-576cbf47c7-2zzzb
  391  kubectl describe pods coredns-576cbf47c7-2zzzb -n kube-system
+ kubectl logs pods -c containerName

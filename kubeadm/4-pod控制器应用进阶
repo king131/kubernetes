@@ -1,0 +1,55 @@
+资源配置清单：
+  自助式Pod资源
+
+  资源清单格式：
+    一级字段：
+    apiserver：
+    kind：
+    metadata：
+    spec：
+    status：
+
+
+  pod资源：
+    spec.containers <[]object>
+    - name <string>
+      image <string>
+      imagePullPolicy <string>
+        Always,Never,IfNotPresent
+
+修改镜像中的默认应用和参数：
+[Define a Command and Arguments for a Container](https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell)
+
+  标签：
+    key=value #键名和value最多63个字符
+    key： 字母、数字、_、-、.
+    value: 可以为空，只能以字母或者数字开头及结尾
+
+    kubectl get pods  --show-labels
+    kubectl get pods -L app #显示拥有app字段标签的标签值
+    kubectl get pods -l app #只显示拥有app字段的资源
+    kubectl get pods -L app
+  标签选择器：
+    等值关系：  = ，== ， ！=
+    集合关系：
+      key in (value1,value2)
+      key notin (value1,value2)
+      key
+      !key
+
+
+    许多资源支持内嵌字段定义其使用的标签选择器：
+      matchLabels:  直接给定键值
+      matchExpressions:  基于给定的表达式来定义标签选择器，{key:"KEY",operator:"OPERATOR",value:"VALUE1,VALUE2..."}
+        操作符：
+          In,NotIn: value 字段的值必须为非空列表；
+          Exists,NotExsits：value字段的值必须为空列表；
+    kubectl label --help #给指定资源打标签
+
+    nodeSeletor <map[string]string>
+      节点标签选择器，
+    nodeName <string>
+
+    annotations:
+      与label不同的地方在于，他不能用于挑选资源对象，仅用于为对象提供“元数据”
+      

@@ -45,8 +45,8 @@ kubectl explain TYPE
 
 
 e.g:
- pod-demo.yaml
+ [pod-demo.yaml](https://github.com/king131/kubernetes/blob/master/kubeadm/manifests/pod-demo.yml)
 kubectl create -f pod-demo.yaml
 查看日志：
 kubectl logs  pod-demo （myapp|busybox）
-kubectl delete -f pod-demo.yaml
+kubectl delete -f pod-demo.yaml  
