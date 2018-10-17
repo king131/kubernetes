@@ -52,4 +52,32 @@
 
     annotations:
       与label不同的地方在于，他不能用于挑选资源对象，仅用于为对象提供“元数据”
-      
+
+    Pod的生命周期：
+      状态：
+        Pending
+        running
+        failed
+        succeed
+        Unknown
+      创建Pod：
+
+
+    两个钩子：
+    post start
+    pre stop
+    Pod生命周期中的总要行为：
+      1、初始化容器
+      2、容器探测
+        1、liveness
+        2、readiness
+      3、钩子
+    容器的重启策略： kubectl explain pods.spec.restartPolicy
+      Always
+      OnFailure:
+      Never:
+
+    探针类型有三种：
+      ExecActiont
+      TCPSocketAction
+      HTTPGetAction
