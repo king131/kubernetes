@@ -1,0 +1,9 @@
+Pod控制器：
+  ReplicationController:
+  ReplicaSet:
+  Deployment:
+  DaemonSet:
+  Job:
+  CronJob:
+  StatefulSet:
+  
