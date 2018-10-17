@@ -2,5 +2,5 @@
 ***
 
 两种搭建方式：  
-kubeadm  
+[kubeadm](https://github.com/king131/kubernetes/tree/master/kubeadm)  
 组件式搭建（比较繁琐）  		
