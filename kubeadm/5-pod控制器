@@ -6,4 +6,7 @@ Pod控制器：
   Job:
   CronJob:
   StatefulSet:
-  
+
+
+  kubectl explain ReplicaSet
+  kubectl explain deploy 
