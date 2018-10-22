@@ -1,0 +1,7 @@
+绕晕的ingress
+
+ingress controller：
+  ～～HAProxy～～
+  Nginx
+  Traefik
+  Envoy

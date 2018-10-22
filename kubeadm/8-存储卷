@@ -1,0 +1,5 @@
+1、emptyDir:临时目录、缓存空间
+2、hostPath：
+3、gitrepo
+4、nfs
+5、pvc：存储-pv-pvc-mountPath
