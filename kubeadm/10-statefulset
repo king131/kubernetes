@@ -6,3 +6,6 @@ PetSet -> StatefulSet
 
 三个组件：
   headless service、statefulSet、volumeClaimTemplate
+
+
+[sts-demo]()
