@@ -1,0 +1,8 @@
+PetSet -> StatefulSet
+1、稳定且唯一的网络标识符；
+2、稳定且持久的存储；
+3、有序、平滑的部署和扩展；
+4、有序、平滑的终止和删除；
+
+三个组件：
+  headless service、statefulSet、volumeClaimTemplate
