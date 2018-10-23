@@ -8,4 +8,4 @@ PetSet -> StatefulSet
   headless service、statefulSet、volumeClaimTemplate
 
 
-[sts-demo]()
+[sts-demo](https://raw.githubusercontent.com/king131/kubernetes/master/kubeadm/manifests/sts-demo.yaml)
