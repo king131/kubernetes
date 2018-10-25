@@ -11,7 +11,7 @@ dashboard:
       b，获取到此SA的secret，查看secert的详细信息，其中就有token
     kubeconfig： 把SA的token封装为kubeconfig文件
       a，创建SA。根据其管理的目标。使用rolebinding或clusterbinding绑定至合理的role或者clusterrole
-      b，kubectl get secret xxx
+      b，kubectl get secret xxx -o jsonpath={.data.token}|base64 -d
 
     c、生成kubeconfig
       kubectl config set-cluster
