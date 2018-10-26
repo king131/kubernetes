@@ -1,0 +1,5 @@
+安装：
+  https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/flannel
+
+kubectl explain networkpolicy
+ 
