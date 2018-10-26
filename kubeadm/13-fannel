@@ -1,0 +1,46 @@
+docker网络：
+  bridge = 自有
+  joined
+  opened = host
+  none
+
+kubernetes网络通信：
+  1、容器间通信： 同一个pod中的多个容器间的通信，lo
+  2、Pod通信： Pod IP 《——》 Pod IP
+  3、Pod与Service通信：PodIP 《--》 ClusterIP
+  4、Service与集群外部客户端的通信： ingress
+
+CNI：
+  flannel
+  calico
+  canel
+  kube-router
+  。。。
+
+  解决方案：
+    虚拟网桥
+    多路复用：MacVLAN
+    硬件交换：SR-IOV
+
+  kubelet,/etc/cni/net.d/
+
+  flannel:
+    支持多种后端：
+      Vxlan
+        1、vxlan
+        2、directrouting
+      host-gw
+      UDP
+    flannel 的配置参数：
+      Network：flannel使用的CIDR格式的网络地址，用于为Pod配置网络功能；
+        10.244.0.0/16
+          master： 10.244.0.0/24
+          node1:  10.244.1.0/24
+          ---
+          node255: 10.244.255.0/24
+
+      SubnetLen： 把Network切分子网供各节点使用时，使用多长的掩码进行切分，默认为24位
+      SubnetMin：  10.244.10.0/24
+      SubnetMax：  10.244.100.0/24
+
+      Backend： Vxlan，host-gw，UDP
