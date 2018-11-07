@@ -3,4 +3,9 @@
 
 两种搭建方式：  
 [kubeadm](https://github.com/king131/kubernetes/tree/master/kubeadm)  
-组件式搭建（比较繁琐）  		
+组件式搭建（比较繁琐）  
+
+####CICD
+---
+Topology:
+![topology](https://github.com/king131/kubernetes/blob/master/kubeadm/images/k8stuopu.png)		
