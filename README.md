@@ -8,4 +8,4 @@
 ####CICD
 ---
 Topology:
-![topology](https://github.com/king131/kubernetes/blob/master/kubeadm/images/k8stuopu.png)		
+![topology](https://github.com/king131/kubernetes/blob/master/kubeadm/images/CICD.png)		
