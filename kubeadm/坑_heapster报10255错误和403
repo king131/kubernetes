@@ -1,0 +1,4 @@
+###坑  
+---  
+参考官方的heapster文档部署heapster的pod里报错，deployment的yaml需要修改，参考一下文档：  
+[文档](http://sealyun.com/post/heapster-error/)
