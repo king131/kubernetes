@@ -19,7 +19,7 @@ dashboard:
       kubectl config set-context
       kubectl config use-context
 
-
+dashboard 暂时无法获取pod的cpu和内容信息。需要heapster部署完成之后才能获取到。
 
 
 kubernetes集群管理方式：
