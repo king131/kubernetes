@@ -12,3 +12,6 @@
         - --kubelet-preferred-address-types=InternalIP,Hostname,InternalDNS,ExternalDNS,ExternalIP
 
 ```
+
+
+[参考文档](http://blog.51cto.com/newfly/2294112?source=dra)
