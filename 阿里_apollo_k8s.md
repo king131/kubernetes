@@ -12,11 +12,12 @@ $ helm install --name apollo .
 
 ####NOTE  
 1、注意此处的 helm install --name apollo . 名字一定要为apollo，因为里面有涉及访问数据库的时候，路径指定的为apollo-proconfigservicemysql  
-~~2、修改values.yml 中关于"xxxconfigservice.mysql"中的storageClass，修改为：  ~~
-~~```bash  
+~~2、修改values.yml 中关于"xxxconfigservice.mysql"中的storageClass，修改为：  
+```bash  
 storageClass: "alicloud-disk-efficiency"  
 size: 20Gi  
-```~~
+```
+
 2、修改hack/run.sh 中存储类，和你需要安装的namespace。
 阿里提供的可用存储类：[链接](https://help.aliyun.com/document_detail/86612.html?spm=a2c4g.11186623.6.654.2a164542oNwhNl)  
 
