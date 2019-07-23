@@ -1,0 +1,51 @@
+#   快速安装k8s的基础软件
+#   1，请安装ansible
+#   2，添加主机组
+#   cat ／etc/ansible/hosts
+#
+#   [k8s]
+#   192.168.1.x  node01
+#   192.168.1.x  node02
+#   192.168.1.x  node02
+#   192.168.1.x  node04
+#
+#   3，运行ansible-playbook k8s_ansible.yaml即可完成初始环境的配置
+#   4，在master节点kubeadm init node节点 kubeadm join
+- hosts: node04
+  remote_user: root
+  # gather_facts: false
+  tasks:
+  - name: 1,禁用swap
+    shell: swapoff -a
+  - name: 2,关闭防火墙
+    shell: ufw disable
+    # 安装docker
+  - name: install dependencies
+    apt:
+      name: "{{ packages }}"
+    vars:
+      packages:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+  - name: 安装 GPG 证书
+    apt_key:
+      url: "{{ item }}"
+      state: present
+    with_items:
+      - "http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg"
+      - "https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg"
+  - name: add aliyun docker and  repo
+    apt_repository:
+      repo: "{{ item.repo }}"
+      state: present
+      filename: "{{ item.fileName }}"
+    loop:
+      - { repo: "deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu {{ ansible_distribution_release }} stable", fileName: "aliyun-docker"}
+      - { repo: "deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main", fileName: "kubernetes"}
+  - name: install docker,kubectl,kubeadm,kubelet
+    apt:
+      name: ['docker-ce', 'kubeadm', 'kubectl', 'kubelet', 'ipset', 'ipvsadm']
+      state: present
+      update_cache: yes
