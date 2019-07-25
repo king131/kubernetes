@@ -11,7 +11,7 @@
 #
 #   3，运行ansible-playbook k8s_ansible.yaml即可完成初始环境的配置
 #   4，在master节点kubeadm init node节点 kubeadm join
-- hosts: node04
+- hosts: ucloud
   remote_user: root
   # gather_facts: false
   tasks:
@@ -19,6 +19,9 @@
     shell: swapoff -a
   - name: 2,关闭防火墙
     shell: ufw disable
+  - name: 3,set hostname
+    hostname:
+      name: "{{ hostname }}"
     # 安装docker
   - name: install dependencies
     apt:
