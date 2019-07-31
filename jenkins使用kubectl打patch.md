@@ -11,7 +11,6 @@ kubectl patch deployment patch-demo --patch '{"spec": {"template": {"spec": {"co
 3. 考虑通过yaml文件的方式打补丁。
 ```bash
 cat > /tmp/patch-file.yaml <<EOF
-
 spec:
   template:
     spec:
@@ -20,6 +19,7 @@ spec:
         image: ${IMAGE_URL}/${IMAGE_NAME}:${VERSION}
 EOF
 ```
+
 ```bash
 kubectl patch deployment ${DEPLOY_NAME} --type merge --patch "$(cat /tmp/patch-file.yaml)"
 ```

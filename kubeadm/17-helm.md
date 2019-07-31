@@ -61,4 +61,9 @@ kubectl get pods -n kube-system
 ```bash
 helm repo add ali-incubator 	https://aliacs-app-catalog.oss-cn-hangzhou.aliyuncs.com/charts-incubator/  
 helm repo add ali-stable	https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts  
+
+#更新repo
+helm repo update
+#搜索软件
+helm search mysql
 ```

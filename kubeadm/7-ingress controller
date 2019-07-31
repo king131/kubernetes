@@ -5,3 +5,7 @@ ingress controller：
   Nginx
   Traefik
   Envoy
+
+
+1,部署：
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/mandatory.yaml
