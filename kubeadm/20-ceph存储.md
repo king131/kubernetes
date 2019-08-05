@@ -2,6 +2,9 @@
 ---
 #### ceph集群的安装  
 [参考ceph官方安装指导就行——点我](http://docs.ceph.com/docs/master/start/#)  
+preflight:  
+> 需要在node节点安装ceph-common
+
 安装完成后，在ceph管理节点创建pool
 ```bash
 #创建命令

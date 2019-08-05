@@ -67,3 +67,8 @@ helm repo update
 #搜索软件
 helm search mysql
 ```
+
+NOTE:
+因为天朝网络原因tiller的镜像可能下载不下来，此时只需要编辑，tiller-deploy文件将镜像替换为hub.docker.com上的tiller镜像即可。  
+> 此处我使用的是：  
+>> jessestuart/tiller:v2.14.3
