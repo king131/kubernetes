@@ -2,7 +2,7 @@
 ---
 ### 日志采集的几种形式  
 - 原生方式：使用 kubectl logs 直接在查看本地保留的日志，或者通过docker engine的 log driver 把日志重定向到文件、syslog、fluentd等系统中。  
-![](images/loggin-node-level.png)
+![image](images/loggin-node-level.png)
 - DaemonSet方式：在K8S的每个node上部署日志agent，由agent采集所有容器的日志到服务端。  
 ![](images/loggin-with-node-agent.png)
 - Sidecar方式：一个POD中运行一个sidecar的日志agent容器，用于采集该POD主容器产生的日志。  
