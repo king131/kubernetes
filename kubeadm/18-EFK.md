@@ -6,7 +6,9 @@
 - DaemonSet方式：在K8S的每个node上部署日志agent，由agent采集所有容器的日志到服务端。  
 ![](images/logging-with-node-agent.png)
 - Sidecar方式：一个POD中运行一个sidecar的日志agent容器，用于采集该POD主容器产生的日志。  
-![](images/logging-with-sidecar-agent.png)
+![](images/logging-with-sidecar-agent.png)  
+#### 三种方式比较
+![](images/logging-compare.png)
 
 
 #### EFK
