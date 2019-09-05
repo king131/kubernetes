@@ -1,0 +1,3 @@
+- import_tasks: pre_join.yml
+- import_tasks: join.yml
+- import_tasks: post_join.yml

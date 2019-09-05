@@ -1,0 +1,76 @@
+---
+- name: 禁用swap
+  shell: swapoff -a
+- name: 关闭防火墙
+  shell: ufw disable
+- name: install dependencies
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+- name: 安装 GPG 证书
+  apt_key:
+    url: "{{ item }}"
+    state: present
+  with_items:
+    - "http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg"
+    - "https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg"
+- name: add aliyun docker and  repo
+  apt_repository:
+    repo: "{{ item.repo }}"
+    state: present
+    filename: "{{ item.fileName }}"
+  loop:
+    - { repo: "deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu {{ ansible_distribution_release }} stable", fileName: "aliyun-docker"}
+    - { repo: "deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main", fileName: "kubernetes"}
+- name: install docker,kubectl,kubeadm,kubelet
+  apt:
+    name: ['docker.io','kubeadm', 'kubectl', 'kubelet', 'ipset', 'ipvsadm', 'ceph-common']
+    state: present
+    update_cache: yes
+- name: create ipvsadm config file path and sysctl config files path
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "/etc/sysconfig/modules/"
+    - "/opt/services/docker"
+- name: copy docker daemon.json
+  copy:
+    src: docker-daemon.json
+    dest: /etc/docker/daemon.json
+- name: reload system daemon
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: docker
+- name: copy ipvs config file
+  copy:
+    src: ipvs.modules
+    dest: /etc/sysconfig/modules/ipvs.modules
+    mode: '0755'
+- name: execute ipvs.modules
+  shell: bash /etc/sysconfig/modules/ipvs.modules
+
+- name: copy sysctl configuration
+  copy:
+    src: sysctl_k8s.conf
+    dest: /etc/sysctl.d/k8s.conf
+
+- name: execute sysctl command
+  sysctl:
+    sysctl_file: /etc/sysctl.d/k8s.conf
+    state: present
+    reload: yes
+    name: "{{ item.key }}"
+    value: "{{ item.value }}"
+  loop:
+    - { key: "net.bridge.bridge-nf-call-ip6tables", value: 1 }
+    - { key: "net.bridge.bridge-nf-call-iptables", value: 1 }
+    - { key: "net.ipv4.ip_nonlocal_bind", value: 1 }
+    - { key: "net.ipv4.ip_forward", value: 1 }
+    - { key: "vm.swappiness", value: 0 }

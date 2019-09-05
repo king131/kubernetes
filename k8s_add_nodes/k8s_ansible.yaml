@@ -49,11 +49,12 @@
       - { repo: "deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main", fileName: "kubernetes"}
   - name: install docker,kubectl,kubeadm,kubelet
     apt:
-      name: ['kubectl']
-      # name: ['kubernetes-cni','kubeadm', 'kubectl', 'kubelet']
+      # name: ['kubectl']
+      name: ['docker.io','kubeadm', 'kubectl', 'kubelet', 'ipset', 'ipvsadm', 'ceph-common']
       # name: [ 'kubeadm=1.12.0', 'kubectl', 'kubelet']
       state: present
       # state: absent
       update_cache: yes
-
+  # - name: 配置 Docker 加速器
+  #   file:
       # sudo apt-get install kubelet=1.14.0-00 kubeadm=1.14.0-00 kubectl=1.14.0-00 #这里安装时我发现默认最新的是1.14.1版本，所以我安装的时候指定版本为1.14.0
