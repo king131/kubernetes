@@ -116,3 +116,7 @@ spec:
 
 3, 登录grafana，添加数据源： http://prometheus.kube-system.svc.cluster.local:9090  
 4, 添加dashboard  
+
+
+### 使用grafana的kubernetes 插件监控时获取发现 k8s dashboard中获取不到值的解决办法
+https://blog.csdn.net/bbwangj/article/details/82658419

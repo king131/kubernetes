@@ -38,7 +38,7 @@
     state: directory
   with_items:
     - "/etc/sysconfig/modules/"
-    - "/opt/services/docker"
+    - "/data/docker"
 - name: copy docker daemon.json
   copy:
     src: docker-daemon.json

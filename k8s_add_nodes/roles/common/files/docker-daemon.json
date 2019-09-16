@@ -1,5 +1,5 @@
 {
-    "data-root": "/opt/services/docker",
+    "data-root": "/data/docker",
     "storage-driver": "overlay2",
     "registry-mirrors": ["https://h7ss231m.mirror.aliyuncs.com"]
 }
