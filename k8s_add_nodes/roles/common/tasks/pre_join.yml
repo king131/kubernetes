@@ -29,7 +29,7 @@
     - { repo: "deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main", fileName: "kubernetes"}
 - name: install docker,kubectl,kubeadm,kubelet
   apt:
-    name: ['docker.io','kubeadm', 'kubectl', 'kubelet', 'ipset', 'ipvsadm', 'ceph-common']
+    name: ['docker.io','kubeadm=1.15.3-00', 'kubectl=1.15.3-00', 'kubelet=1.15.3-00', 'ipset', 'ipvsadm', 'ceph-common']
     state: present
     update_cache: yes
 - name: create ipvsadm config file path and sysctl config files path

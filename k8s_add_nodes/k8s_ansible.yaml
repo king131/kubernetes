@@ -11,50 +11,10 @@
 #
 #   3，运行ansible-playbook k8s_ansible.yaml即可完成初始环境的配置
 #   4，在master节点kubeadm init node节点 kubeadm join
-- hosts: test
-  remote_user: root
-  # gather_facts: false
+- hosts: jenkins
+  remote_user: ubuntu
+  gather_facts: false
   tasks:
-  - name: 1,禁用swap
-    shell: swapoff -a
-  - name: 2,关闭防火墙
-    shell: ufw disable
-  # - name: 3,set hostname
-  #   hostname:
-  #     name: "{{ hostname }}"
-    # 安装docker
-  - name: install dependencies
-    apt:
-      name: "{{ packages }}"
-    vars:
-      packages:
-      - apt-transport-https
-      - ca-certificates
-      - curl
-      - software-properties-common
-  - name: 安装 GPG 证书
-    apt_key:
-      url: "{{ item }}"
-      state: present
-    with_items:
-      - "http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg"
-      - "https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg"
-  - name: add aliyun docker and  repo
-    apt_repository:
-      repo: "{{ item.repo }}"
-      state: present
-      filename: "{{ item.fileName }}"
-    loop:
-      - { repo: "deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu {{ ansible_distribution_release }} stable", fileName: "aliyun-docker"}
-      - { repo: "deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main", fileName: "kubernetes"}
-  - name: install docker,kubectl,kubeadm,kubelet
-    apt:
-      # name: ['kubectl']
-      name: ['docker.io','kubeadm', 'kubectl', 'kubelet', 'ipset', 'ipvsadm', 'ceph-common']
-      # name: [ 'kubeadm=1.12.0', 'kubectl', 'kubelet']
-      state: present
-      # state: absent
-      update_cache: yes
-  # - name: 配置 Docker 加速器
-  #   file:
-      # sudo apt-get install kubelet=1.14.0-00 kubeadm=1.14.0-00 kubectl=1.14.0-00 #这里安装时我发现默认最新的是1.14.1版本，所以我安装的时候指定版本为1.14.0
+  - name: test1
+    # command: /mnt/jenkins/scripts/ucloud_ulb/setUlb_linux_amd64 ulb_id backend_id 0
+    raw: /mnt/jenkins/scripts/ucloud_ulb/setUlb_linux_amd64 "{{ulb_id}}" "{{backend_id}}" 0

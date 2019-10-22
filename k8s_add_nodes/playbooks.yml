@@ -1,23 +1,23 @@
 ---
-- name: ADD private key to ubuntu user
+# - name: ADD private key to ubuntu user
+#   hosts: node
+#   remote_user: ubuntu
+#   tasks:
+#     - name: add private key
+#       authorized_key:
+#         user: ubuntu
+#         state: present
+#         key: "{{ lookup('file', 'devops.pub')}}"
+
+
+- name: Add nodes to k8s Cluster
   hosts: node
   remote_user: ubuntu
-  tasks:
-    - name: add private key
-      authorized_key:
-        user: ubuntu
-        state: present
-        key: "{{ lookup('file', 'devops.pub')}}"
-
-
-# - name: Add nodes to k8s Cluster
-#   hosts: node
-#   remote_user: root
-#   # sudo: yes
-#   gather_facts: yes
-#   roles:
-#     - common
-    # - { role: common}
+  sudo: yes
+  gather_facts: yes
+  roles:
+    - common
+    - { role: common}
   # tasks:
   #   - name: just test
   #     shell: rm -rf /root/test
