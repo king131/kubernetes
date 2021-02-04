@@ -157,3 +157,18 @@ kubectl apply -f scpod.yaml
 ```bash
 kubectl get pods
 ```
+
+
+
+### pvc 扩容
+
+k8s关于[Resizing Persistent Volumes using Kubernetes](https://kubernetes.io/blog/2018/07/12/resizing-persistent-volumes-using-kubernetes/)  
+在v1.11版本`persistent volume expansion feature is being promoted to beta`.   pvc大小只能扩大不能缩小。
+
+直接修改`pvc`的`resources.requests.storage`.只能扩大不能缩小。
+查看pvc状态，提示信息：  
+
+>message: Waiting for user to (re-)start a pod to finish file system resize of
+      volume on node
+
+pod需要`重启`之后，才能看见pvc大小的调整。
