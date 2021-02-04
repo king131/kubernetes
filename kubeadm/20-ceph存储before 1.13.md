@@ -7,7 +7,7 @@ k8s 1.13之后使用CSI，1.13版本之前还可以使用这个方式创建stora
 #### ceph集群的安装  
 [参考ceph官方安装指导就行——点我](http://docs.ceph.com/docs/master/start/#)  
 preflight:  
-> 需要在node节点安装ceph-common
+> 需要在node节点安装ceph-common #注意安装ceph-common的版本应与ceph server version保持一致。避免因为'feature set mismatch'导致pod无法挂载pvc
 
 安装完成后，在ceph管理节点创建pool
 ```bash
