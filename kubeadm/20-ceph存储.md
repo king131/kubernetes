@@ -1,4 +1,7 @@
-# 废弃，ceph有新的方案提供出来了
+# Deprecated！
+
+k8s 1.13之后使用CSI，1.13版本之前还可以使用这个方式创建storageclass
+
 ### Ceph RBD动态供给存储
 ---
 #### ceph集群的安装  
