@@ -27,19 +27,23 @@
 
 ### 创建上下文
 1. 创建 cluster
+
     ```bash
     kubectl config set-cluster  CLUSTERNAME --server=https://1.2.3.4:8443  --certificate-authority=path/to/certificate/ca.crt --embed-certs=true
     ```
 1. 创建 user
+
     ```bash
     kubectl config set-credentials  testprivate --client-certificate=./testprivate.crt --client-key=./testprivate.key  --embed-certs=true
     ```
 1. 设置上下文
+
     ```bash
     kubectl config set-context username@clustername --cluster=CLusterName --user=user_nickname --namespaces=NameSpace
     ```
 
 1. 切换上下文
+
     ```bash
     kubectl use-context username@clustername
     ```
@@ -47,11 +51,31 @@
 
 1. 创建role
     ```bash
-    kubectl create role pods-reader --verb=get,list,watch --resource=pods --dry-run -o yaml  
-    修改namespace
+    kubectl create role pods-reader --verb=get,list,watch --resource=pods --dry-run=client  -o yaml  > testrole.yaml
+    修改`namespace`的值为限制用户权限的namespace
+    ```
+    ```yaml
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: Role
+    metadata:
+      namespace: default
+      name: pods-reader
+    rules:
+    - apiGroups:
+      - ""
+      resources:
+      - pods
+      verbs:
+      - get
+      - list
+      - watch
     ```
 
+    ```bash
+    kubectl apply -f testrole.yaml
+    ```
 1. 创建rolebinding
+
     ```bash
     kubectl create rolebinding BindingName --role=pods-reader --user=testprivate
     ```
